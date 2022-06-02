@@ -1,5 +1,6 @@
  let contador=0;
 let costoTotal=0;
+let totalEnProductos=0;
  let element = document.getElementById("totalPrecio");
  element.innerHTML="Total en precio"; 
 
@@ -90,6 +91,8 @@ document.getElementById("alertValidaciones").style.display="none";
   //el *100 es para que corra los dos ultimos digitos del numero aleatiro
     let precio= (Math.floor( (Math.random() * 50)*100))/100;
    let cantidad=parseFloat(txtNumber.value);
+ totalEnProductos += Math.ceil(cantidad<1)?Math.ceil(cantidad):parseInt(cantidad);
+ document.getElementById("productosTotal").innerHTML=totalEnProductos;
    costoTotal+=(precio*cantidad);
    total.innerHTML=`$ ${costoTotal.toFixed(2)}`;
    
